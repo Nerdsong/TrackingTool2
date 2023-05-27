@@ -195,7 +195,7 @@ function repetirClicks(datos,inputAuxiliar,botonAux,timer){
     }
     else{}
     }
-  , 350);
+  , 363);
 }
 
 function detenerRepetidorDeClicks(timer){
