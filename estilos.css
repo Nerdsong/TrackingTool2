@@ -133,11 +133,11 @@ p{
   }
 
   .card-active {
-    transition: transform 0.2s ease;
+    transition: transform 0.1s ease;
   }
 
   .card-active:active {
-    transform: scale(0.85);
+    transform: scale(0.95);
   }
 
   .horario_1{
