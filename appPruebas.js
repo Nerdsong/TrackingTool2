@@ -169,10 +169,12 @@ function aplicacionEjecutable(){
       let legajo = ObjetoConDatosParaCopiarAlPortaPapeles.getLegajoServicio();
       let separador = `⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧⇧\n${ObjetoConDatosParaCopiarAlPortaPapeles.getNombreDelSitio()}`;
       var timer;
+      var timer2;
+      var retrasoDelClicker;
     
       let datosParaElPortaPapeles = [separador,legajo,fecha,atm,task,SR];
   
-      repetirClicks(datosParaElPortaPapeles,inputAuxiliar,botonAux,timer);
+      repetirClicks(datosParaElPortaPapeles,inputAuxiliar,botonAux,timer,timer2);
 
     }
 
@@ -184,55 +186,38 @@ function aplicacionEjecutable(){
 
 
 //---------------------Estas funciones se encargan de copiar al clipboard los datos del array con la informacion del servicio, deberían ir como objetos de momento los mantendré como funciones para optimizar tiempo
-function repetirClicks(datos,inputAuxiliar,botonAux,timer){
+function repetirClicks(datos,inputAuxiliar,botonAux,timer,timer2){
   var iterador2 = 0;
   timer = setInterval(function() {
-    agregarAlClipboard(datos, iterador2, inputAuxiliar, botonAux);
-    iterador2 ++;
-    if(iterador2 == 6){
-      detenerRepetidorDeClicks(timer);
-      iterador2 = 0;
+    inputAuxiliar.value = datos[iterador2];
+    timer2 = setTimeout(function(){
+      agregarAlClipboard(iterador2, inputAuxiliar, botonAux,timer2);
+      iterador2 ++;
+      if(iterador2 == 6){
+        detenerRepetidorDeClicks(timer);
+        iterador2 = 0;
+      }
+      else{}
+      },50)
+    
     }
-    else{}
-    }
-  , 500);
+  , 350);
 }
 
 function detenerRepetidorDeClicks(timer){
   clearInterval(timer);
 }
 
-function agregarAlClipboard(datos, iterador2, inputAuxiliar,botonAux){
+function agregarAlClipboard(iterador2, inputAuxiliar,botonAux,timer2){
   
-  switch(iterador2){
-      case 0:
-          inputAuxiliar.value = datos[iterador2];
-          botonAux.click();
-          break;
-      case 1:
-          inputAuxiliar.value = datos[iterador2];
-          botonAux.click()
-          break;
-      case 2: 
-          inputAuxiliar.value = datos[iterador2];
-          botonAux.click()
-          
-          break;
-      case 3:
-          inputAuxiliar.value = datos[iterador2];
-          botonAux.click()
-          
-          break;
-      case 4:
-          inputAuxiliar.value = datos[iterador2];
-          botonAux.click()
-          
-          break;
-      case 5:
-          inputAuxiliar.value = datos[iterador2];
-          botonAux.click()
-          inputAuxiliar.value = "INFO  COPIADA ✔"
-          break;
+  if(iterador2 < 5){
+    botonAux.click();
+    clearTimeout(timer2);
+  }
+  else{
+    botonAux.click()
+    clearTimeout(timer2)
+    inputAuxiliar.value = "INFO  COPIADA ✔"
   }
 }
 
