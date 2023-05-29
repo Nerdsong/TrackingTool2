@@ -23,6 +23,10 @@ body{
 
 }
 
+img{
+  width: 13rem;
+  margin: 5rem;
+}
 .col{
     margin-left: 0.1rem!important;
 }
