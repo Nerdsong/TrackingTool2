@@ -188,8 +188,11 @@ function aplicacionEjecutable(){
 //---------------------Estas funciones se encargan de copiar al clipboard los datos del array con la informacion del servicio, deberían ir como objetos de momento los mantendré como funciones para optimizar tiempo
 function repetirClicks(datos,inputAuxiliar,botonAux,timer,timer2){
   var iterador2 = 0;
+  //aqui seteo un intervalo de tiempo para que la funcion se ejecute cada cierto tiempo, creo que el tiempo obtimo viene siendo 350ms, lo quiero bajar despues.
   timer = setInterval(function() {
+    //luego igualo el input desde donde se copianlos valores al clipboard basandome en la variable de iteracion para tomarlo como indice del array con los datos.
     inputAuxiliar.value = datos[iterador2];
+    //inicio una funcion con timeout(retraso) de 50ms para dar tiempo a que el input se actualice, debe ser menor al intervalo anterior para que pueda contenerla.
     timer2 = setTimeout(function(){
       agregarAlClipboard(iterador2, inputAuxiliar, botonAux,timer2);
       iterador2 ++;
@@ -208,6 +211,7 @@ function detenerRepetidorDeClicks(timer){
   clearInterval(timer);
 }
 
+// esta funcion pude simplificarla evitando el uso de un switch y limitandome a que el aumento de la variable iterador se haga afuera. Ahora solo debe evaluar una condicion en lugar de 6
 function agregarAlClipboard(iterador2, inputAuxiliar,botonAux,timer2){
   
   if(iterador2 < 5){
