@@ -8,7 +8,7 @@ class GeneradorCartasServicios{
     
     imprimirCartasServiciosGeneradas(listadoTecnicos,listado){
         let s=0;
-        for( s = 1 ; s < listado.length; s++ ){
+        for( s = 0 ; s < listado.length; s++ ){
             if(this.verificarLegajo(listadoTecnicos,listado[s].getLegajoServicio())){
                 if(listado[s].getStatus()== "Assigned"){
                     document.querySelector(`#${listado[s].getLegajoServicio()}`).innerHTML +=`
