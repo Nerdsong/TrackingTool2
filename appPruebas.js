@@ -195,7 +195,7 @@ function repetirClicks(datos,inputAuxiliar,botonAux,timer,timer2){
     //inicio una funcion con timeout(retraso) de 50ms para dar tiempo a que el input se actualice, debe ser menor al intervalo anterior para que pueda contenerla.
     timer2 = setTimeout(function(){
       agregarAlClipboard(iterador2, inputAuxiliar, botonAux,timer2);
-      iterador2 ++;
+
       if(iterador2 == 6){
         detenerRepetidorDeClicks(timer);
         iterador2 = 0;
@@ -217,6 +217,7 @@ function agregarAlClipboard(iterador2, inputAuxiliar,botonAux,timer2){
   if(iterador2 < 5){
     botonAux.click();
     clearTimeout(timer2);
+    iterador2 ++;
   }
   else{
     botonAux.click()
