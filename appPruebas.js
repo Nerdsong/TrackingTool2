@@ -201,7 +201,7 @@ function repetirClicks(datos,inputAuxiliar,botonAux,timer,timer2){
         iterador2 = 0;
       }
       else{}
-      },60)
+      },100)
     
     }
   ,400);
