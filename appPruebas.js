@@ -201,10 +201,10 @@ function repetirClicks(datos,inputAuxiliar,botonAux,timer,timer2){
         iterador2 = 0;
       }
       else{}
-      },40)
+      },50)
     
     }
-  ,350);
+  ,360);
 }
 
 function detenerRepetidorDeClicks(timer){
