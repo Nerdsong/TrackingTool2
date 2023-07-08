@@ -143,11 +143,15 @@ function aplicacionEjecutable(){
         copiarDataAlPortaPapeles(generadorServicios.serviciosGenerados,SRDelDOM,botonAux,inputAuxiliar);
       });
     }
-    )
+    );
+    
 
 
 
-      function copiarDataAlPortaPapeles(arrayConServiciosObjetos,tarjeta,botonAux,inputAuxiliar){
+    function copiarDataAlPortaPapeles(arrayConServiciosObjetos,tarjeta,botonAux,inputAuxiliar){
+      var tiempoDelTimer = document.querySelector("#velocidadCopy").value;
+      var tiempoDelTimer2 = tiempoDelTimer * 0.25;
+      console.log(tiempoDelTimer);
       let SRDesdeElDom = tarjeta;
       let iterador = 0;
       let SRDeBusqueda = arrayConServiciosObjetos[iterador].getSR();
@@ -174,7 +178,7 @@ function aplicacionEjecutable(){
     
       let datosParaElPortaPapeles = [separador,legajo,fecha,atm,task,SR];
   
-      repetirClicks(datosParaElPortaPapeles,inputAuxiliar,botonAux,timer,timer2);
+      repetirClicks(datosParaElPortaPapeles,inputAuxiliar,botonAux,timer,timer2,tiempoDelTimer,tiempoDelTimer2);
 
     }
 
@@ -186,7 +190,7 @@ function aplicacionEjecutable(){
 
 
 //---------------------Estas funciones se encargan de copiar al clipboard los datos del array con la informacion del servicio, deberían ir como objetos de momento los mantendré como funciones para optimizar tiempo
-function repetirClicks(datos,inputAuxiliar,botonAux,timer,timer2){
+function repetirClicks(datos,inputAuxiliar,botonAux,timer,timer2,tiempoDelTimer,tiempoDelTimer2){
   var iterador2 = 0;
   //aqui seteo un intervalo de tiempo para que la funcion se ejecute cada cierto tiempo, creo que el tiempo obtimo viene siendo 350ms, lo quiero bajar despues.
   timer = setInterval(function() {
@@ -201,10 +205,10 @@ function repetirClicks(datos,inputAuxiliar,botonAux,timer,timer2){
         iterador2 = 0;
       }
       else{}
-      },150)
+      },tiempoDelTimer2)
     
     }
-  ,500);
+  ,tiempoDelTimer);
 }
 
 function detenerRepetidorDeClicks(timer){
