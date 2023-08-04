@@ -12,6 +12,11 @@ h3{
   
 }
 
+h6{
+  color: aliceblue;
+  text-align: center;
+}
+
 body{
     margin: 0.5rem;
     background-color: rgb(56, 55, 55);
@@ -62,7 +67,6 @@ img{
   font-weight: bolder;
   font-size: medium;
   margin-right: 5rem;
-  margin-left: -15rem;
 };
 
 
@@ -170,4 +174,9 @@ p{
 
   .no_disponible{
     background-color: rgb(121, 46, 61)!important;
+  }
+
+  #velocidadCopy{
+    margin-left: 1rem!important;
+    
   }
