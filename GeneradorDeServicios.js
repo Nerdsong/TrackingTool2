@@ -72,6 +72,13 @@ class GeneradorDeServicios{
         let columnaFechaYHoraSinSeparar = this.ubicarColumnaDe(ScheduleStartORequestedBy,matrizDatos);
         let i = 1;
         for(i=1;i < matrizDatos.length;i++){
+            //Esta parte del código es para cubrir un problema que se genera cuando la celda donde debería estar la fecha está completamente vacia, porque por defecto suele traer un espacio y la toma como texto. 
+            if(matrizDatos[i][columnaFechaYHoraSinSeparar] == "" || matrizDatos[i][columnaFechaYHoraSinSeparar] == undefined){
+                matrizDatos[i][columnaFechaYHoraSinSeparar] = " ";
+            }
+            else{};
+            //---------------------------------------------------------------
+            
             var dateString = matrizDatos[i][columnaFechaYHoraSinSeparar];
             var dateParts = dateString.split(" "); // Dividir la cadena en fecha y hora
             var date = dateParts[0].split("-"); // Dividir la parte de la fecha por "-"
