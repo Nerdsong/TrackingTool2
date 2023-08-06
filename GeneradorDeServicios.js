@@ -74,7 +74,7 @@ class GeneradorDeServicios{
         for(i=1;i < matrizDatos.length;i++){
             //Esta parte del código es para cubrir un problema que se genera cuando la celda donde debería estar la fecha está completamente vacia, porque por defecto suele traer un espacio y la toma como texto. 
             if(matrizDatos[i][columnaFechaYHoraSinSeparar] == "" || matrizDatos[i][columnaFechaYHoraSinSeparar] == undefined){
-                matrizDatos[i][columnaFechaYHoraSinSeparar] = " ";
+                matrizDatos[i][columnaFechaYHoraSinSeparar] = "08-06-2023 00:00:00";
             }
             else{};
             //---------------------------------------------------------------
