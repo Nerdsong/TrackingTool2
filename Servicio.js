@@ -16,7 +16,9 @@ class Servicio{
     }
 
     setLegajoServicio(legajo){
-        this.#legajoServicio = legajo;
+        let auxiliarLegajo;
+        auxiliarLegajo = legajo.toUpperCase();
+        this.#legajoServicio = auxiliarLegajo.substring(0, 8);
     }
 
     getSR(){
